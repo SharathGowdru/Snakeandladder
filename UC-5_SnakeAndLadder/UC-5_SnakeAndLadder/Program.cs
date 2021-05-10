@@ -26,15 +26,20 @@ namespace SnakeAndLadderSimulator
                             break;
 
                         case IsSnake:
-                            Console.WriteLine("its a snake,you are going down");
+                            Console.WriteLine("Opss! its a snake,you are going down");
                             positionOfPlayer -= dice;
                             if (positionOfPlayer < 0)
                                 positionOfPlayer = 0;
                             break;
 
                         default:
-                            Console.WriteLine("You Cannot move");
+                            Console.WriteLine("You cannot move");
                             break;
+                    }
+                    if (positionOfPlayer > 100)
+                    {
+                        positionOfPlayer -= dice;
+                        Console.WriteLine("Cannot move ...please roll again");
                     }
                     Console.WriteLine("The player is at position " + positionOfPlayer + ",and rolled a die : " + dice);
                 }

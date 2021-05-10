@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>UC_4_SnakeAndLadder</RootNamespace>
+    <RootNamespace>UC_5_SnakeAndLadder</RootNamespace>
   </PropertyGroup>
 
 </Project>

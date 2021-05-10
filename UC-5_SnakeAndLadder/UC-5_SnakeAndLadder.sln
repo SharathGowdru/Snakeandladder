@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UC-4_SnakeAndLadder", "UC-4_SnakeAndLadder\UC-4_SnakeAndLadder.csproj", "{6AAB070B-14A9-4729-8C7E-1F0087806550}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UC-5_SnakeAndLadder", "UC-5_SnakeAndLadder\UC-5_SnakeAndLadder.csproj", "{CA40A0FB-882B-4CCA-A2EF-EEE8354D430B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AAB070B-14A9-4729-8C7E-1F0087806550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AAB070B-14A9-4729-8C7E-1F0087806550}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AAB070B-14A9-4729-8C7E-1F0087806550}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AAB070B-14A9-4729-8C7E-1F0087806550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA40A0FB-882B-4CCA-A2EF-EEE8354D430B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA40A0FB-882B-4CCA-A2EF-EEE8354D430B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA40A0FB-882B-4CCA-A2EF-EEE8354D430B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA40A0FB-882B-4CCA-A2EF-EEE8354D430B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {869A8D49-8B88-43DC-8E10-FB287F7B152E}
+		SolutionGuid = {C0B48F55-8481-47BD-9FFE-D3A936D06922}
 	EndGlobalSection
 EndGlobal
