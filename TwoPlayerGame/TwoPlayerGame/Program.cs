@@ -1,81 +1,98 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TwoPlayerGame
+namespace SnakeAndLadderSimulator
 {
-    class SnakeAndLadder
+    class Program
     {
-        int START_POSITION = 0;
-        const int NoPlay = 0;
-        const int Ladder = 1;
-        const int Snake = 2;
-        const int winning_position = 100;
-        public void PlayGame()
+        public class SnakeAndLadder
         {
-            int[] Player = new int[2] { 0, 0 };
-            int Dice_Count = 0;
-            int Chance = 0;
-            while (Player[Chance] < winning_position)
+            public const int IsLadder = 1;
+            public const int IsSnake = 2;
+            public const int IsPlayer1 = 0;
+            public const int IsPlayer2 = 0;
+
+
+            static void Main(string[] args)
             {
-                Random random = new Random();
-                int Die = random.Next(1, 7);
-                int Option = random.Next(0, 3);
-                Dice_Count++;
-                Console.WriteLine($"Report the number of times the dice was played to win {Dice_Count}");
-
-
-                switch (Option)
+                int player = 0;
+                int posOfPlayer1 = 0;
+                int posOfPlayer2 = 0;
+                int dieRollCount = 0;
+                while (posOfPlayer1 < 100 && posOfPlayer2 < 100)
                 {
-                    case NoPlay:
-                        Console.WriteLine("No Play, Pass the chance");
-                        break;
-                    case Ladder:
-                        if (Player[Chance] +Die <= winning_position)
-                        {
-                            Player[Chance] += Die;
-
-                        }
-                        Console.WriteLine("You got Ladder \n Player position = " + Chance + "--->" + "Position" + " " + Player[Chance]);
-                        break;
-                    case Snake:
-                        if (Player[Chance] -Die < START_POSITION)
-                        {
-                            Player[Chance] = START_POSITION;
-                        }
-                        else
-                        {
-                            Player[Chance] -= Die;
-                        }
-                        Console.WriteLine("You gotSnake \n player = " + Chance + "---> position " + " " + Player[Chance]);
-
-                        break;
-                    default:
-                        break;
-                }
-                if (Option == NoPlay || Option == Snake)
-                {
-                    if (Chance == 0)
+                    dieRollCount++;
+                    Random random = new Random();
+                    int dice = random.Next(1, 7);
+                    int option = random.Next(0, 3);
+                    switch (option)
                     {
-                        Chance = 1;
+                        case IsLadder:
+                            Console.WriteLine("Yeah! its a ladder,please step up");
+                            if (player == IsPlayer1)
+                                posOfPlayer1 += dice;
+                            else
+                                posOfPlayer2 += dice;
+                            break;
+
+                        case IsSnake:
+                            Console.WriteLine("Opss! its a snake,you are going down");
+
+                            if (player == IsPlayer2)
+                            {
+                                posOfPlayer1 -= dice;
+                                if (posOfPlayer1 < 0)
+                                    posOfPlayer1 = 0;
+                            }
+                            else
+                            {
+                                posOfPlayer2 -= dice;
+                                if (posOfPlayer2 < 0)
+                                    posOfPlayer2 = 0;
+                            }
+                            break;
+
+                        default:
+                            Console.WriteLine("You cannot move");
+                            break;
+                    }
+                    if (posOfPlayer1 > 100 || posOfPlayer2 > 100)
+                    {
+
+                        Console.WriteLine("Cannot move ...please roll again");
+                        if (player == IsPlayer1)
+                            posOfPlayer1 -= dice;
+                        else
+                            posOfPlayer2 -= dice;
+
+
+                    }
+                    Console.WriteLine("The player 1 is at position " + posOfPlayer1 + ",and rolled a die : " + dice + "and the option is: " + option);
+                    Console.WriteLine("The player 2 is at position " + posOfPlayer2 + ",and rolled a die : " + dice + "and the option is: " + option);
+                    if (option == 1)
+                    {
+                        Console.WriteLine("Congrats! One more Chance.");
+                    }
+                    else if (player == IsPlayer1)
+                    {
+                        Console.WriteLine("Second Player turn");
+                        player = 1;
                     }
                     else
                     {
-                        Chance = 0;
+                        Console.WriteLine("First Player Turn");
+                        player = 0;
                     }
                 }
-
+                Console.WriteLine("The total no of time die was rolled to win is :" + dieRollCount);
+                if (posOfPlayer1 == 100)
+                {
+                    Console.WriteLine("Player1 Wins");
+                }
+                else
+                {
+                    Console.WriteLine("Player2 Wins");
+                }
             }
-            Console.WriteLine($"Total number of Times Dice role {Dice_Count}");
-
-
-        }
-        static void Main(string[] args)
-        {
-            SnakeAndLadder StartPlay = new SnakeAndLadder();
-            StartPlay.PlayGame();
         }
     }
 }
